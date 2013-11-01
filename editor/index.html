@@ -59,6 +59,24 @@
       float: left;
     }
 
+    .hover-screen {
+      background-color: rgba(0, 0, 0, 0.50);
+      position: fixed;
+      z-index: 300;
+      width: 100%;
+      height: 100%;
+    }
+
+    .hover-title {
+      color: white;
+    }
+
+    #doc-input {
+      display: inline-block;
+      margin: 0 auto;
+      width: 20%;
+    }
+
   </style>
 </head>
 <body>
@@ -67,6 +85,12 @@
     <p>Hey!</p>
   </span>
 -->
+  <div id="doc-screen" class="hover-screen">
+    <center>
+      <h1 class="hover-title">Documentation</h1>
+      <input id="doc-input" type="text" name="input" placeholder="Type your query...">
+    </center>
+  </div>
   <div class="editor-container">
     <pre id="docs"></pre>
     <pre id="editor"></pre>
