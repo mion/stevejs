@@ -1,3 +1,5 @@
+//$( document ).ready(function() {
+
 // Setup Ace editor
 var editor = ace.edit("editor");
 editor.setTheme("ace/theme/monokai");
@@ -22,9 +24,22 @@ docs.renderer.setShowGutter(false);
 docs.setHighlightActiveLine(false);
 docs.setReadOnly(true);
 
+var docScreen = document.getElementById("doc-screen");
+docScreen.hidden = true;
+
+var docInput = document.getElementById("doc-input");
+docInput.onkeypress = function (e) {
+  var query = docInput.value;
+  popup(query);
+  search(query);
+};
+
 function printInput (s) { terminal.insert("\n" + s + "\n"); };
 function printOutput (s) { terminal.insert("\n\t=> " + s + "\n"); };
-function print (msg, opt) { ; };
+
+popup = function (msg) {  
+  printOutput(msg);
+};
 
 // Augmenting JS
 if(typeof(String.prototype.trim) === "undefined") {
@@ -33,9 +48,6 @@ if(typeof(String.prototype.trim) === "undefined") {
     };
 }
 
-print = function (msg) {  
-  printOutput(msg);
-};
 
 // Restore code
 editor.session.setValue(localStorage.sourceCode);
@@ -74,7 +86,27 @@ editor.commands.addCommand({
     bindKey: {win: 'Ctrl-S',  mac: 'Command-S'},
     exec: function () {
       localStorage.sourceCode = editor.session.getValue();
-      console.log("Saved.");
+      popup("[*] Saved");
     },
     readOnly: true // false if this command should not apply in readOnly mode
 });
+
+keypress.combo("ctrl space", function() {
+    docScreen.hidden = !docScreen.hidden;
+    docInput.focus();
+});
+
+/* Documentation search */
+var searchAPI = "localhost:5000/search?=?";
+
+var search = function (query) {
+  $.getJSON( searchAPI, {
+    query: "Boolean",
+    format: "json"
+  })
+    .done(function( data ) {
+      output(data);
+    });
+};
+
+//});

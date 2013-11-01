@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
   <title>steve.js</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -71,10 +72,21 @@
       color: white;
     }
 
+    .hover-screen ul {
+      list-style-type: none;
+      padding: 0px;
+    }
+
+    .hover-screen li {
+      color: white;
+      background-color: #000;
+      width: 30%;
+    }
+
     #doc-input {
       display: inline-block;
       margin: 0 auto;
-      width: 20%;
+      width: 30%;
     }
 
   </style>
@@ -88,7 +100,10 @@
   <div id="doc-screen" class="hover-screen">
     <center>
       <h1 class="hover-title">Documentation</h1>
-      <input id="doc-input" type="text" name="input" placeholder="Type your query...">
+      <input id="doc-input" type="text" name="input" placeholder=" > ">
+      <ul>
+        <li>Hello world!</li>
+      </ul>
     </center>
   </div>
   <div class="editor-container">
@@ -104,6 +119,7 @@
   </script>
 -->
   <script src="src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/keypress-1.0.8.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="steve.js"></script>
 </body>
 </html>
