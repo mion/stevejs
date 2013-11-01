@@ -109,32 +109,19 @@ var SEARCH_API_URL = "http://localhost:5000/search";//?query=";
 var search = function (query) {
   popup("Searching " + query);
 
-  // $.getJSON( url, {
-  //   query: "Boolean"
-  // })
-  // .done(function( data ) {
-  //   console.log("Success!");
-  //   console.log(data);
-  // });
-
-  (function() {       
-    var raiseAjaxError = function() {
-        $.ajax({
-            url: SEARCH_API_URL + query,
-            type: 'GET',
-            dataType: 'text',
-            success: function(data) {
-                console.log('OK: ' + data);
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                console.log('Error: ' + errorThrown + ' ' + textStatus + ' ' + jqXHR);
-            }
-        });
-    };
-    
-    raiseAjaxError(); // Error: NOT FOUND error [object Object]
-      
-  })()​;
-};
+  $.ajax({
+    url: SEARCH_API_URL + query,
+    type: 'GET',
+    dataType: 'text',
+    success: function(data) {
+      console.log('OK: ' + data);
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+      console.log('Error: ' + errorThrown + ' ' + textStatus + ' ' + jqXHR);
+      console.log(textStatus);
+      console.log(jqXHR);
+    }
+  });
+  };    
 
 });
