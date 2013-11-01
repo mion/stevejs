@@ -1,4 +1,12 @@
-//$( document ).ready(function() {
+$( document ).ready(function() {
+
+  $( document ).ajaxError(function(event, jqxhr, settings, exception) {
+    popup( "Triggered ajaxError handler." );
+    console.log(event);
+    console.log(jqxhr);
+    console.log(settings);
+    console.log(exception);
+  });
 
 // Setup Ace editor
 var editor = ace.edit("editor");
@@ -30,7 +38,6 @@ docScreen.hidden = true;
 var docInput = document.getElementById("doc-input");
 docInput.onkeypress = function (e) {
   var query = docInput.value;
-  popup(query);
   search(query);
 };
 
@@ -97,16 +104,37 @@ keypress.combo("ctrl space", function() {
 });
 
 /* Documentation search */
-var searchAPI = "localhost:5000/search?=?";
+var SEARCH_API_URL = "http://localhost:5000/search";//?query=";
 
 var search = function (query) {
-  $.getJSON( searchAPI, {
-    query: "Boolean",
-    format: "json"
-  })
-    .done(function( data ) {
-      output(data);
-    });
+  popup("Searching " + query);
+
+  // $.getJSON( url, {
+  //   query: "Boolean"
+  // })
+  // .done(function( data ) {
+  //   console.log("Success!");
+  //   console.log(data);
+  // });
+
+  (function() {       
+    var raiseAjaxError = function() {
+        $.ajax({
+            url: SEARCH_API_URL + query,
+            type: 'GET',
+            dataType: 'text',
+            success: function(data) {
+                console.log('OK: ' + data);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log('Error: ' + errorThrown + ' ' + textStatus + ' ' + jqXHR);
+            }
+        });
+    };
+    
+    raiseAjaxError(); // Error: NOT FOUND error [object Object]
+      
+  })()​;
 };
 
-//});
+});
