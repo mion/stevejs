@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import json
 from search_engine import SearchEngine
 from flask import Flask, request
