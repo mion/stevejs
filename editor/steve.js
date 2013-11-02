@@ -23,7 +23,7 @@ docs.setHighlightActiveLine(false);
 docs.setReadOnly(true);
 
 function printInput (s) { terminal.insert("\n" + s + "\n"); };
-function printOutput (s) { terminal.insert("\n\t=> " + s + "\n"); };
+function printOutput (s) { terminal.insert("\n  => " + s + "\n"); };
 
 popup = function (msg) {  
   printOutput(msg);
@@ -90,7 +90,7 @@ var docScreen = document.getElementById("doc-screen");
 var docInput = document.getElementById("doc-input");
 docInput.onkeyup = function (e) {
   var query = docInput.value;
-  popup(query);
+  //popup(query);
   searchDocs(query);
 };
 
