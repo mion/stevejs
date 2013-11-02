@@ -51,13 +51,17 @@ body {
 }
 
 .hover-screen {
+  /*
   background-color: rgba(0, 0, 0, 0.50);
+  */
+  background-color: #F5F5F5;
   position: fixed;
   z-index: 300;
   width: 100%;
   height: 100%;
 }
 
+/*
 .hover-title {
   color: white;
 }
@@ -70,11 +74,23 @@ body {
 .hover-screen li {
   color: white;
   background-color: #000;
-  width: 30%;
+  width: 50%;
 }
+*/
 
 #doc-input {
   display: inline-block;
   margin: 0 auto;
   width: 30%;
 }
+
+#doc-result {
+  font-family: "Inconsolata";
+}
+
+/*#doc-result div {
+  border: 1px solid #111;
+  padding: 0;
+  margin: 0;
+}
+*/

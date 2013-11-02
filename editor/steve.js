@@ -88,6 +88,7 @@ for (var i = 0; i < rawJSDocs.length; i++) {
 
 var docScreen = document.getElementById("doc-screen");
 var docInput = document.getElementById("doc-input");
+var docResult = document.getElementById("doc-result");
 docInput.onkeyup = function (e) {
   var query = docInput.value;
   //popup(query);
@@ -95,7 +96,16 @@ docInput.onkeyup = function (e) {
 };
 
 var searchDocs = function (query) {
+  docResult.innerHTML = "";
   if (docs[query]) {
     popup(docs[query]["_id"]);
+    sectionHTMLs = docs[query]["sectionHTMLs"];
+    for (var i = 0; i < sectionHTMLs.length; i++) {
+      var li = document.createElement("li");
+      //notf.classList.add('bubble');//, 'animated', 'fadeInLeft');
+      li.innerHTML = sectionHTMLs[i];
+      docResult.insertAdjacentElement('beforeend', li);
+    };
+    //docResult.innerHTML = docs[query]["sectionHTMLs"][0];
   }
 };
