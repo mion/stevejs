@@ -1,25 +1,15 @@
-$( document ).ready(function() {
-
-  $( document ).ajaxError(function(event, jqxhr, settings, exception) {
-    popup( "Triggered ajaxError handler." );
-    console.log(event);
-    console.log(jqxhr);
-    console.log(settings);
-    console.log(exception);
-  });
-
-// Setup Ace editor
+// Setup Ace editors
 var editor = ace.edit("editor");
 editor.setTheme("ace/theme/monokai");
 editor.getSession().setMode("ace/mode/javascript");
-editor.setFontSize(18);
+editor.setFontSize(17);
 editor.getSession().setTabSize(4);
 editor.getSession().setUseSoftTabs(true);
 
 var terminal = ace.edit("terminal");
 terminal.setTheme("ace/theme/ambiance");
 terminal.getSession().setMode("ace/mode/javascript");
-terminal.setFontSize(18);
+terminal.setFontSize(17);
 terminal.renderer.setShowGutter(false);
 terminal.setHighlightActiveLine(false);
 terminal.setReadOnly(true);
@@ -27,19 +17,10 @@ terminal.setReadOnly(true);
 var docs = ace.edit("docs");
 docs.setTheme("ace/theme/ambiance");
 docs.getSession().setMode("ace/mode/javascript");
-docs.setFontSize(18);
+docs.setFontSize(17);
 docs.renderer.setShowGutter(false);
 docs.setHighlightActiveLine(false);
 docs.setReadOnly(true);
-
-var docScreen = document.getElementById("doc-screen");
-docScreen.hidden = true;
-
-var docInput = document.getElementById("doc-input");
-docInput.onkeypress = function (e) {
-  var query = docInput.value;
-  search(query);
-};
 
 function printInput (s) { terminal.insert("\n" + s + "\n"); };
 function printOutput (s) { terminal.insert("\n\t=> " + s + "\n"); };
@@ -47,13 +28,6 @@ function printOutput (s) { terminal.insert("\n\t=> " + s + "\n"); };
 popup = function (msg) {  
   printOutput(msg);
 };
-
-// Augmenting JS
-if(typeof(String.prototype.trim) === "undefined") {
-    String.prototype.trim = function() {
-        return String(this).replace(/^\s+|\s+$/g, '');
-    };
-}
 
 
 // Restore code
@@ -65,7 +39,7 @@ editor.session.on("tokenizerUpdate", function (e) {
 
 editor.commands.addCommand({
     name: 'send-to-REPL',
-    bindKey: {win: 'Ctrl-E',  mac: 'Command-E'},
+    bindKey: {win: 'Ctrl-Enter',  mac: 'Command-Enter'},
     exec: function execute () {
       "use strict";
       var text = editor.session.getTextRange(editor.getSelectionRange());
@@ -103,25 +77,25 @@ keypress.combo("ctrl space", function() {
     docInput.focus();
 });
 
-/* Documentation search */
-var SEARCH_API_URL = "http://localhost:5000/search";//?query=";
+//popup(rawJSDocs[25]["title"]);
 
-var search = function (query) {
-  popup("Searching " + query);
+// Prepare docs
+var docs = {};
+for (var i = 0; i < rawJSDocs.length; i++) {
+  var title = rawJSDocs[i]["title"];
+  docs[title] = rawJSDocs[i];
+};
 
-  $.ajax({
-    url: SEARCH_API_URL + query,
-    type: 'GET',
-    dataType: 'text',
-    success: function(data) {
-      console.log('OK: ' + data);
-    },
-    error: function(jqXHR, textStatus, errorThrown) {
-      console.log('Error: ' + errorThrown + ' ' + textStatus + ' ' + jqXHR);
-      console.log(textStatus);
-      console.log(jqXHR);
-    }
-  });
-  };    
+var docScreen = document.getElementById("doc-screen");
+var docInput = document.getElementById("doc-input");
+docInput.onkeyup = function (e) {
+  var query = docInput.value;
+  popup(query);
+  searchDocs(query);
+};
 
-});
+var searchDocs = function (query) {
+  if (docs[query]) {
+    popup(docs[query]["_id"]);
+  }
+};

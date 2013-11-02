@@ -9,7 +9,7 @@
   <link href="steve.css" rel="stylesheet" type="text/css" media="screen">
 </head>
 <body>
-  <div id="doc-screen" class="hover-screen">
+  <div id="doc-screen" class="hover-screen" hidden="true">
     <center>
       <h1 class="hover-title">Documentation</h1>
       <input id="doc-input" type="text" name="input" placeholder=" > ">
@@ -21,11 +21,13 @@
   <div class="editor-container">
     <pre id="docs"></pre>
     <pre id="editor"></pre>
-    <pre id="terminal"></pre>
+    <pre id="terminal">// Live REPL -> Ctrl+Enter to evaluate</pre>
   </div>
   <!-- Le JavaScript -->
   <script src="js/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/keypress-1.0.8.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/augment.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="data/js-mdn.json"></script> <!-- Little hack to avoid a backend -->
   <script src="steve.js"></script>
 </body>
 </html>

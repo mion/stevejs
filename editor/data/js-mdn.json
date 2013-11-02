@@ -1,4 +1,4 @@
-[
+rawJSDocs = [
 	{
 		"url": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date",
 		"title": "Date",
@@ -7693,4 +7693,4 @@
 			"See also"
 		]
 	}
-]
+];
