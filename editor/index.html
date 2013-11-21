@@ -1,17 +1,69 @@
 <!DOCTYPE html>
-<html>
 <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
   <title>Steve.js</title>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="css/steve.css" rel="stylesheet" type="text/css" media="screen">
-<!--
-  <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
--->
+
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
+
+  <link href="css/semantic.css" rel="stylesheet" type="text/css">
+  <link href="css/steve.css" rel="stylesheet" type="text/css">
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>  
+  <script src="js/libs/semantic.js"></script>
+  <script src="js/steve.js"></script>
 </head>
 <body>
-  <div id="doc-screen" class="hover-screen" hidden="true">
+  <!-- Menu -->
+  <div class="ui inverted page grid segment">
+    <div class="column">
+      <div class="inverted secondary pointing ui menu">
+        <a class="active item" data-variation=".left">
+          <i class="home icon"></i> Project
+        </a>
+        <a class="item">
+          <i class="mail icon"></i> Messages
+        </a>
+        <a class="item">
+          <i class="user icon"></i> Friends
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- Main -->
+  <div class="ui left sidebar vertical menu active">
+    <div class="header item">Project</div>
+    <a class="item">foo.js</a>
+    <a class="item">bar.js</a>
+    <a class="item">baz.js</a>
+  </div>
+  <main class="ui celled grid">
+    <div class="row">
+      <section class="six wide column">
+        <pre id="editor"></pre>
+        <pre id="terminal"></pre>
+      </section>
+      <section class="four wide column">
+        <i class="heart circular icon link" data-content="Hello, I am a pop-up."></i>
+        <div class="large basic animated fade ui button">
+          <div class="visible content">Come to ICU 2013</div>
+          <div class="hidden content">Register Now</div>
+        </div>
+        <div class="ui dropdown link item">
+            Courses
+            <i class="dropdown icon"></i>
+            <div class="menu ui transition hidden">
+              <a class="item">Petting</a>
+              <a class="item">Feeding</a>
+              <a class="item">Mind Reading</a>
+            </div>
+          </div>
+      </section>
+    </div>
+  </main>
+<!--   <div id="doc-screen" class="hover-screen" hidden="true">
     <center>
       <h1 class="hover-title">Documentation</h1>
       <input id="doc-input" type="text" name="input" placeholder=" > ">
@@ -23,13 +75,13 @@
     <pre id="editor"></pre>
     <pre id="terminal">// Live REPL -> Ctrl+Enter to evaluate</pre>
   </div>
+-->
   <!-- Libs -->
-  <script src="js/libs/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+  <!-- <script src="js/libs/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script> -->
   <script src="js/libs/ace/ace.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/libs/keypress-1.0.8.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/libs/augment.min.js" type="text/javascript" charset="utf-8"></script>
   <!-- App -->
   <script src="data/js-mdn.json"></script> <!-- Little hack to avoid a backend -->
-  <script src="js/steve.js"></script>
 </body>
 </html>

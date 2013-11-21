@@ -1,3 +1,6 @@
+$(document)
+  .ready(function() {
+
 // Setup Ace editors
 var editor = ace.edit("editor");
 editor.setTheme("ace/theme/monokai");
@@ -14,20 +17,20 @@ terminal.renderer.setShowGutter(false);
 terminal.setHighlightActiveLine(false);
 terminal.setReadOnly(true);
 
-var docs = ace.edit("docs");
-docs.setTheme("ace/theme/ambiance");
-docs.getSession().setMode("ace/mode/javascript");
-docs.setFontSize(17);
-docs.renderer.setShowGutter(false);
-docs.setHighlightActiveLine(false);
-docs.setReadOnly(true);
+// var docs = ace.edit("docs");
+// docs.setTheme("ace/theme/ambiance");
+// docs.getSession().setMode("ace/mode/javascript");
+// docs.setFontSize(17);
+// docs.renderer.setShowGutter(false);
+// docs.setHighlightActiveLine(false);
+// docs.setReadOnly(true);
 
 function printInput (s) { terminal.insert("\n" + s + "\n"); };
 function printOutput (s) { terminal.insert("\n  => " + s + "\n"); };
 
-popup = function (msg) {  
-  printOutput(msg);
-};
+// popup = function (msg) {  
+//   printOutput(msg);
+// };
 
 
 // Restore code
@@ -89,11 +92,11 @@ for (var i = 0; i < rawJSDocs.length; i++) {
 var docScreen = document.getElementById("doc-screen");
 var docInput = document.getElementById("doc-input");
 var docResult = document.getElementById("doc-result");
-docInput.onkeyup = function (e) {
-  var query = docInput.value;
-  //popup(query);
-  searchDocs(query);
-};
+// docInput.onkeyup = function (e) {
+//   var query = docInput.value;
+//   //popup(query);
+//   searchDocs(query);
+// };
 
 var searchDocs = function (query) {
   docResult.innerHTML = "";
@@ -109,3 +112,5 @@ var searchDocs = function (query) {
     //docResult.innerHTML = docs[query]["sectionHTMLs"][0];
   }
 };
+
+}); 
