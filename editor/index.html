@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Steve.js</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/steve.css" rel="stylesheet" type="text/css" media="screen">
+<!--
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
+-->
+</head>
+<body>
+  <div id="doc-screen" class="hover-screen" hidden="true">
+    <center>
+      <h1 class="hover-title">Documentation</h1>
+      <input id="doc-input" type="text" name="input" placeholder=" > ">
+      <ul id="doc-result"></ul>
+    </center>
+  </div>
+  <div class="editor-container">
+    <pre id="docs"></pre>
+    <pre id="editor"></pre>
+    <pre id="terminal">// Live REPL -> Ctrl+Enter to evaluate</pre>
+  </div>
+  <!-- Libs -->
+  <script src="js/libs/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/libs/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/libs/keypress-1.0.8.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/libs/augment.min.js" type="text/javascript" charset="utf-8"></script>
+  <!-- App -->
+  <script src="data/js-mdn.json"></script> <!-- Little hack to avoid a backend -->
+  <script src="js/steve.js"></script>
+</body>
+</html>
