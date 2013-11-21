@@ -1,5 +1,13 @@
-$(document)
-  .ready(function() {
+/* SemanticUI modules */
+$(document).ready(function() {
+
+  $('.ui.dropdown')
+    .dropdown({
+      on: 'hover'
+    })
+  ;
+
+}); 
 
 // Setup Ace editors
 var editor = ace.edit("editor");
@@ -113,4 +121,3 @@ var searchDocs = function (query) {
   }
 };
 
-}); 

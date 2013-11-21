@@ -6,17 +6,11 @@
 
   <title>Steve.js</title>
 
-  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
-
   <link href="css/semantic.css" rel="stylesheet" type="text/css">
   <link href="css/steve.css" rel="stylesheet" type="text/css">
-
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>  
-  <script src="js/libs/semantic.js"></script>
-  <script src="js/steve.js"></script>
 </head>
 <body>
-  <!-- Menu -->
+  <!-- Top menu -->
   <div class="ui inverted page grid segment">
     <div class="column">
       <div class="inverted secondary pointing ui menu">
@@ -77,11 +71,15 @@
   </div>
 -->
   <!-- Libs -->
-  <!-- <script src="js/libs/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script> -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>  
+  <script src="js/libs/semantic.js"></script>
   <script src="js/libs/ace/ace.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/libs/keypress-1.0.8.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/libs/augment.min.js" type="text/javascript" charset="utf-8"></script>
+  <!-- Data (little hack to avoid backend) -->
+  <script src="data/js-mdn.json"></script>
   <!-- App -->
-  <script src="data/js-mdn.json"></script> <!-- Little hack to avoid a backend -->
+  <script src="js/steve.js"></script>
+
 </body>
 </html>
