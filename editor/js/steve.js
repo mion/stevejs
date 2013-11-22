@@ -7,11 +7,40 @@ $(document).ready(function() {
     })
   ;
 
+  // Sidebars
+  $('.overlay.sidebar')
+    .sidebar({
+      overlay: true
+    })
+  ;
+
+  $('#top-menu .item')
+    .on('click', function() {
+      $(this)
+        .toggleClass('active')
+        .siblings()
+        .removeClass('active')
+        ;
+      $('.sidebar')
+        .filter($(this).data('variation') ).first()
+        .sidebar('toggle')
+      ;
+    })
+  ;
+
+  $('.styled.sidebar').first()
+    .sidebar('attach events', '.styled.example .button')
+  ;
+
+  $('.floating.sidebar').first()
+    .sidebar('attach events', '.floating.example .button')
+  ;
+
 }); 
 
 // Setup Ace editors
 var editor = ace.edit("editor");
-editor.setTheme("ace/theme/monokai");
+editor.setTheme("ace/theme/tomorrow");
 editor.getSession().setMode("ace/mode/javascript");
 editor.setFontSize(17);
 editor.getSession().setTabSize(4);
@@ -105,7 +134,7 @@ var docResult = document.getElementById("doc-result");
 //   //popup(query);
 //   searchDocs(query);
 // };
-
+  
 var searchDocs = function (query) {
   docResult.innerHTML = "";
   if (docs[query]) {
