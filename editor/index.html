@@ -3,6 +3,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
   <!-- Favicon -->
   <link rel="shortcut icon" sizes="16x16 32x32 48x48 64x64" href="favicon.ico">
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -13,6 +14,7 @@
   <link href="css/steve.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+
   <!-- Top menu -->
   <div class="ui inverted page grid segment">
     <div class="column">
@@ -27,6 +29,7 @@
       </div>
     </div>
   </div>
+
   <!-- Sidebars -->
   <div class="ui project sidebar inverted vertical menu">
     <div class="header item">New Project</div>
@@ -38,6 +41,7 @@
     <div class="header item">REPL</div>
     <pre id="terminal"></pre>
   </div>  
+
   <!-- Main -->
   <main class="ui celled grid">
     <div class="row">
@@ -46,27 +50,17 @@
       </section>
     </div>
   </main>
-<!--   <div id="doc-screen" class="hover-screen" hidden="true">
-    <center>
-      <h1 class="hover-title">Documentation</h1>
-      <input id="doc-input" type="text" name="input" placeholder=" > ">
-      <ul id="doc-result"></ul>
-    </center>
-  </div>
-  <div class="editor-container">
-    <pre id="docs"></pre>
-    <pre id="editor"></pre>
-    <pre id="terminal">// Live REPL -> Ctrl+Enter to evaluate</pre>
-  </div>
--->
+
   <!-- Libs -->
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>  
-  <script src="js/libs/semantic.js"></script>
+  <script src="js/libs/jquery.js"></script> <!-- 2.0.3 -->
+  <script src="js/libs/semantic.js"></script> <!-- 0.9.3 -->
   <script src="js/libs/ace/ace.js" type="text/javascript" charset="utf-8"></script>
-  <script src="js/libs/keypress-1.0.8.min.js" type="text/javascript" charset="utf-8"></script>
-  <script src="js/libs/augment.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/libs/keypress.js" type="text/javascript" charset="utf-8"></script> <!-- 1.0.8 -->
+  <script src="js/libs/augment.js" type="text/javascript" charset="utf-8"></script> <!-- 1.8.5 -->
+
   <!-- Data (little hack to avoid backend) -->
   <script src="data/js-mdn.json"></script>
+
   <!-- App -->
   <script src="js/steve.js"></script>
 
