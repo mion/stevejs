@@ -113,40 +113,40 @@ editor.commands.addCommand({
 });
 
 keypress.combo("ctrl space", function() {
-    docScreen.hidden = !docScreen.hidden;
-    docInput.focus();
+    // docScreen.hidden = !docScreen.hidden;
+    // docInput.focus();
 });
 
 //popup(rawJSDocs[25]["title"]);
 
 // Prepare docs
-var docs = {};
-for (var i = 0; i < rawJSDocs.length; i++) {
-  var title = rawJSDocs[i]["title"];
-  docs[title] = rawJSDocs[i];
-};
+// var docs = {};
+// for (var i = 0; i < rawJSDocs.length; i++) {
+//   var title = rawJSDocs[i]["title"];
+//   docs[title] = rawJSDocs[i];
+// };
 
-var docScreen = document.getElementById("doc-screen");
-var docInput = document.getElementById("doc-input");
-var docResult = document.getElementById("doc-result");
+// var docScreen = document.getElementById("doc-screen");
+// var docInput = document.getElementById("doc-input");
+// var docResult = document.getElementById("doc-result");
 // docInput.onkeyup = function (e) {
 //   var query = docInput.value;
 //   //popup(query);
 //   searchDocs(query);
 // };
   
-var searchDocs = function (query) {
-  docResult.innerHTML = "";
-  if (docs[query]) {
-    popup(docs[query]["_id"]);
-    sectionHTMLs = docs[query]["sectionHTMLs"];
-    for (var i = 0; i < sectionHTMLs.length; i++) {
-      var li = document.createElement("li");
-      //notf.classList.add('bubble');//, 'animated', 'fadeInLeft');
-      li.innerHTML = sectionHTMLs[i];
-      docResult.insertAdjacentElement('beforeend', li);
-    };
-    //docResult.innerHTML = docs[query]["sectionHTMLs"][0];
-  }
-};
+// var searchDocs = function (query) {
+//   docResult.innerHTML = "";
+//   if (docs[query]) {
+//     popup(docs[query]["_id"]);
+//     sectionHTMLs = docs[query]["sectionHTMLs"];
+//     for (var i = 0; i < sectionHTMLs.length; i++) {
+//       var li = document.createElement("li");
+//       //notf.classList.add('bubble');//, 'animated', 'fadeInLeft');
+//       li.innerHTML = sectionHTMLs[i];
+//       docResult.insertAdjacentElement('beforeend', li);
+//     };
+//     //docResult.innerHTML = docs[query]["sectionHTMLs"][0];
+//   }
+// };
 
